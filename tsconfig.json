@@ -6,9 +6,10 @@
         "sourceMap":true,
         "outDir": "dist",
     //   "strict": true,
-    //   "allowJs": true,
-    //   "strictNullChecks": false,
-    //   "esModuleInterop": true,
+      "allowJs": true,
+      "strictNullChecks": false,
+      "experimentalDecorators": true,
+      "esModuleInterop": true,
       
     },
     "include": [
