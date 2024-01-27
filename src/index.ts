@@ -75,12 +75,12 @@ const keyPath = process.env.SSL_KEY_PATH
 //     key: fs.readFileSync(path.join(__dirname, '../cert', 'key.pem')),
 //     cert: fs.readFileSync(path.join(__dirname, '../cert', 'cert.pem'))
 
-console.log("Using SSL : ", path.join(__dirname, certPath), path.join(__dirname, keyPath));
+console.log("Using SSL : ", certPath, keyPath);
 // };
 const options = {
     // key: fs.readFileSync('path/to/private-key.pem'),
-    key: fs.readFileSync(path.join(__dirname, keyPath)),
-    cert: fs.readFileSync(path.join(__dirname, certPath))
+    key: fs.readFileSync(keyPath),
+    cert: fs.readFileSync(certPath)
 };
 
 console.log("Using options : ", options);
