@@ -67,11 +67,23 @@ app.get("/matchmake/joinOrCreate/GameRoom/", (req, res) => {
 
 // Use regular HTTP in development
 
+const certPath = process.env.SSL_CERT_PATH;
+const keyPath = process.env.SSL_KEY_PATH
+
+// const options = {
+//     // key: fs.readFileSync('path/to/private-key.pem'),
+//     key: fs.readFileSync(path.join(__dirname, '../cert', 'key.pem')),
+//     cert: fs.readFileSync(path.join(__dirname, '../cert', 'cert.pem'))
+
+console.log("Using SSL : ", path.join(__dirname, certPath), path.join(__dirname, keyPath));
+// };
 const options = {
     // key: fs.readFileSync('path/to/private-key.pem'),
-    key: fs.readFileSync(path.join(__dirname, '../cert', 'key.pem')),
-    cert: fs.readFileSync(path.join(__dirname, '../cert', 'cert.pem'))
+    key: fs.readFileSync(path.join(__dirname, keyPath)),
+    cert: fs.readFileSync(path.join(__dirname, certPath))
 };
+
+console.log("Using options : ", options);
 
 // Create the HTTPS server
 const server = createServer(options, app);
