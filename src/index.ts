@@ -28,7 +28,7 @@ app.use(cors());
 
 // const port = process.env.PORT || 3000;
 
-const portString = process.env.PORT || "3000";
+const portString = process.env.PORT || "3005";
 const port = parseInt(portString, 10);
 
 function corsMiddleware(req, res, next) {
