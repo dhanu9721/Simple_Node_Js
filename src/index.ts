@@ -4,7 +4,7 @@ import pkg from 'colyseus';
 // import { Server } from "colyseus";
 import cors from "cors";
 import { config } from "dotenv";
-import { createServer } from "http";
+import { createServer } from "https";
 import { WebSocketTransport } from "@colyseus/ws-transport";
 import { MyRoom } from "./rooms/MyRoom.js";
 const { Server } = pkg;
@@ -48,6 +48,7 @@ app.get("/matchmake/joinOrCreate/", (req, res) => {
 });
 app.get("/matchmake/joinOrCreate/GameRoom", (req, res) => {
     // Your logic for handling the GET request goes here
+    console.log("Game Room request")
     res.status(200).send("Handling GET request for /matchmake/joinOrCreate/GameRoom");
 });
 app.get("/matchmake/joinOrCreate/GameRoom/", (req, res) => {

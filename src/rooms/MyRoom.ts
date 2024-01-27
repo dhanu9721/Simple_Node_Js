@@ -1,5 +1,6 @@
-import { Room, Client } from "@colyseus/core";
+import { Room, Client, ClientArray } from "@colyseus/core";
 import { MyRoomState } from "./schema/MyRoomState.js";
+import { IncomingMessage } from "http";
 
 export class MyRoom extends Room<MyRoomState> {
   maxClients = 4;
@@ -12,6 +13,11 @@ export class MyRoom extends Room<MyRoomState> {
       // handle "type" message
       //
     });
+  }
+
+  onAuth(client: Client, options: any, request?: IncomingMessage) {
+    console.log("onAuth", client.sessionId);
+    return true;
   }
 
   onJoin(client: Client, options: any) {
