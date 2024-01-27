@@ -9,6 +9,10 @@ import { WebSocketTransport } from "@colyseus/ws-transport";
 import { MyRoom } from "./rooms/MyRoom.js";
 import { createServer } from "https";
 import * as fs from 'fs';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 import path from "path";
 
 const { Server } = pkg;
@@ -65,8 +69,8 @@ app.get("/matchmake/joinOrCreate/GameRoom/", (req, res) => {
 
 const options = {
     // key: fs.readFileSync('path/to/private-key.pem'),
-    key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem')),
-    cert: fs.readFileSync(path.join(__dirname, 'cert', 'cert.pem'))
+    key: fs.readFileSync(path.join(__dirname, '../cert', 'key.pem')),
+    cert: fs.readFileSync(path.join(__dirname, '../cert', 'cert.pem'))
 };
 
 // Create the HTTPS server
