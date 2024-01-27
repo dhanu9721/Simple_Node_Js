@@ -4,10 +4,15 @@ import pkg from 'colyseus';
 // import { Server } from "colyseus";
 import cors from "cors";
 import { config } from "dotenv";
-import { createServer } from "http";
+// import{ createServer } from "https";
 import { WebSocketTransport } from "@colyseus/ws-transport";
 import { MyRoom } from "./rooms/MyRoom.js";
+import { createServer } from "https";
+import * as fs from 'fs';
+import path from "path";
+
 const { Server } = pkg;
+// const { createServer }= fg;
 // import express from "express";
 config();
 // const express = require('express');
@@ -57,7 +62,17 @@ app.get("/matchmake/joinOrCreate/GameRoom/", (req, res) => {
 });
 
 // Use regular HTTP in development
-const server = createServer(app);
+
+const options = {
+    // key: fs.readFileSync('path/to/private-key.pem'),
+    key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem')),
+    cert: fs.readFileSync(path.join(__dirname, 'cert', 'cert.pem'))
+};
+
+// Create the HTTPS server
+const server = createServer(options, app);
+
+// const server = createServer(app,options);
 
 let gameServer = new Server({
     transport: new WebSocketTransport({
