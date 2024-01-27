@@ -4,7 +4,7 @@ import pkg from 'colyseus';
 // import { Server } from "colyseus";
 import cors from "cors";
 import { config } from "dotenv";
-import { createServer } from "https";
+import { createServer } from "http";
 import { WebSocketTransport } from "@colyseus/ws-transport";
 import { MyRoom } from "./rooms/MyRoom.js";
 const { Server } = pkg;
