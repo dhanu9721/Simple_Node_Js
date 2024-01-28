@@ -41,23 +41,23 @@ app.get("/matchmake/joinOrCreate/GameRoom", (req, res) => {
     res.status(200).send("Handling GET request for /matchmake/joinOrCreate/GameRoom");
 });
 
-const region = process.env.MY_REGION;
-const certPath = process.env.MY_AWS_ACCESS_KEY_ID;
+// const region = process.env.MY_REGION;
+// const certPath = process.env.MY_AWS_ACCESS_KEY_ID;
 // const certPath = process.env.SSL_CERT_PATH;
 // const keyPath = process.env.SSL_KEY_PATH
-const keyPath = process.env.MY_AWS_SECRET_ACCESS_KEY
+// const keyPath = process.env.MY_AWS_SECRET_ACCESS_KEY
 
-console.log("my paths region : ", region, " cert : ", certPath, " key : ", keyPath)
+// console.log("my paths region : ", region, " cert : ", certPath, " key : ", keyPath)
 
 
 console.log("process env : ", process.env)
 
-const options = {
-    key: fs.readFileSync(keyPath),
-    cert: fs.readFileSync(certPath)
-};
+// const options = {
+//     key: fs.readFileSync(keyPath),
+//     cert: fs.readFileSync(certPath)
+// };
 
-console.log("Using options : ", options);
+// console.log("Using options : ", options);
 
 // const server = createServer(options, app);
 const server = createServer(app);
