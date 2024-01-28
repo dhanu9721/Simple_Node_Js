@@ -26,6 +26,12 @@ export default config({
             res.send("It's time to kick ass and chew bubblegum!");
         });
 
+        app.get("/matchmake/joinOrCreate/GameRoom", (req, res) => {
+            // Your logic for handling the GET request goes here
+            console.log("Game Room request")
+            res.status(200).send("Handling GET request for /matchmake/joinOrCreate/GameRoom");
+        });
+
         /**
          * Use @colyseus/playground
          * (It is not recommended to expose this route in a production environment)
