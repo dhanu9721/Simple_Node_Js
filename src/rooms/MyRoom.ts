@@ -1,5 +1,6 @@
 import { Room, Client, ClientArray } from "@colyseus/core";
-import { MyRoomState } from "./schema/MyRoomState.js";
+// import { MyRoomState } from "./schema/MyRoomState.js";
+import { MyRoomState } from "./schema/MyRoomState";
 import { IncomingMessage } from "http";
 
 export class MyRoom extends Room<MyRoomState> {
